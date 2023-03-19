@@ -3,38 +3,31 @@ import threading
 
 
 def parallel_processing(n, m, data):
-    output = []
-    threads = [0]*n
-    for i in data:
-        nak=threads.index(min(threads))
-        output.append((nak,threads[nak]))
-        threads[nak]+=i
+    output = [] #izveido sarakstu
+    threads = [0]*n # saraksts ar n pavedieniem
+    for i in data: #izveido ciklu
+        nak=threads.index(min(threads)) # meklē pavedienu ar mazāki izpildes laiku
+        output.append((nak,threads[nak])) # pievieno pāri izvades sarakstam ar pavediena numuru un izpildes laiku
+        threads[nak]+=i #piešķir izpildes laiku pavedienam
     return output
-    # TODO: write the function for simulating parallel tasks, 
-    # create the output pairs
+    
 
     
 
 def main():
-    # TODO: create input from keyboard
-    # input consists of two lines
-    # first line - n and m
-    # n - thread count 
-    # m - job count
-    n,m =map(int,input().split())
+    
+    n,m =map(int,input().split()) #ievadīto datu lasīšana
     data=list(map(int,input().split()))
     
     
 
-    # second line - data 
-    # data - contains m integers t(i) - the times in seconds it takes any thread to process i-th job
-    #data = []
-
-    # TODO: create the function
-    result = parallel_processing(n,m,data)
     
-    # TODO: print out the results, each pair in it's own line
-    for i in result:
+
+    
+    result = parallel_processing(n,m,data) # izsauc funkciju ar ievades datiem
+    
+   
+    for i in result: #izprintē rezultātu
         print(i[0],i[1])
 
 
